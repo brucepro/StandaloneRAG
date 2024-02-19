@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  qdrant:
+    container_name: standalonerag_qdrant
+    image: qdrant/qdrant
+    ports:
+      - "6335:6333"
+    volumes:
+          - './storage/qdrant:/app/qdrant:rw'
+
+
