@@ -15,35 +15,11 @@ class UrlHandler():
         loader = SeleniumURLLoader(urls=urls)
         
         data = loader.load()
-        print("##############")
-        print(data)
-        print("##############")
-        '''
-        #save to rag memory
-        text_splitter = RecursiveCharacterTextSplitter(
-    separators=["\n"], chunk_size=1000, chunk_overlap=50, keep_separator=False
-)
-        verbose = False
-        ltm_limit = 2
-        address = "http://localhost:6335"
-        rag = RAG_DATA_MEMORY(self.character_name,ltm_limit,verbose, address=address)
-        for document in data:
-            splits = text_splitter.split_text(document.page_content)
         
-            for text in splits:
-                 #print("----")
-                 #print(text)
-                 #print("----")
-                 now = datetime.utcnow()
-                 data_to_insert = str(text) + " reference:" + str(url)
-                 doc_to_insert = {'comment': str(data_to_insert),'datetime': now}
-                 rag.store(doc_to_insert)
-        '''
-        print("MODE")
-        print(mode)    
+        #save to rag memory
+           
         if mode == 'input':
             return data
         elif mode == 'output':
-            print("outputing" + str(data))
             thedata = str(data)
             return f"[URL_CONTENT={url}]\n{thedata}"

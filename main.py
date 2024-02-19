@@ -7,7 +7,7 @@ def process_string(input_string):
     handler = CommandHandler(databasefile,collection)
     commands_output = handler.process_command(input_string)
     
-    return input_string
+    return commands_output
 
 while 1==1:
   input_string = input("Enter your string input: ")
