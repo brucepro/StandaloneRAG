@@ -71,8 +71,8 @@ class CommandHandler():
                     if validation:
                         print("URL is valid")
                         content = handler.get_url(url, mode=mode)
-                        print("command output")
-                        print(content)
+                        #print("command output")
+                        #print(content)
                         self.command_output["GET_URL"] = f"GET_URL: {content}"
 
                     else:
